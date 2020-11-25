@@ -1,0 +1,35 @@
+{
+  "name": "b47-cn",
+  "version": "1.0.0",
+  "description": "API plantilla para el batch 47 de Cinta negra.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "eslint \"**/*.js\"",
+    "lint-fix": "eslint \"**/*.js\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yibarr/b47-cn.git"
+  },
+  "keywords": [],
+  "author": "Yael Ibarra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yibarr/b47-cn/issues"
+  },
+  "homepage": "https://github.com/Yibarr/b47-cn#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.15"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.6"
+  }
+}
