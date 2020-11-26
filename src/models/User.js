@@ -5,6 +5,10 @@ const userSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  profile_img: {
+    type: String,
+    default: 'https://picsum.photos/200/300',
+  },
   first_name: {
     type: String,
     required: true,
@@ -25,6 +29,9 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  followers: [{ type: Schema.Types.ObjectId, ref: 'users' }],
+  following: [{ type: Schema.Types.ObjectId, ref: 'users' }],
+  posts: [{ type: Schema.Types.ObjectId, ref: 'posts' }],
 }, { timestamps: true });
 
 const User = model('Model', userSchema, 'Models');
