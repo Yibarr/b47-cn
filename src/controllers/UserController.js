@@ -20,10 +20,20 @@ module.exports = {
       if (!user) throw new Error('Credenciales incorrectas');
       const sync = auth.compareSync(password, user.password);
       if (!sync) throw new Error('Credenciales incorrectas');
-      console.log('Ayura');
-      // TODO: Agregar token
-      // TODO: Enviar token
-      res.status(200).send({ payload: 'Ok' });
+      const token = auth.createToken(user);
+      res.status(200).send({ payload: token });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  },
+  update: async (req, res) => {
+    try {
+      const { decoded, body } = req;
+      const user = await UserService.findOneById(decoded.id);
+      if (!user) throw new Error('User not found');
+      const modifiedUser = await UserService.updateOne(user, body);
+      modifiedUser.password = undefined;
+      res.status(200).send({ payload: modifiedUser });
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
