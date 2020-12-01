@@ -23,9 +23,11 @@
   "homepage": "https://github.com/Yibarr/b47-cn#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "celebrate": "^13.0.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.15"
+    "mongoose": "^5.10.15",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "eslint": "^7.14.0",
