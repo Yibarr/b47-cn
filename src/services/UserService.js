@@ -9,4 +9,6 @@ module.exports = {
     Object.assign(user, body);
     return user.save();
   },
+  follow: (id, targetId, type) => User.findByIdAndUpdate(id, { $addToSet: { [type]: targetId } }),
+  unfollow: (id, targetId, type) => User.findByIdAndUpdate(id, { $pull: { [type]: targetId } }),
 };

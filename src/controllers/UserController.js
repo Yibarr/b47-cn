@@ -38,4 +38,32 @@ module.exports = {
       res.status(400).json({ error: error.message });
     }
   },
+  follow: async (req, res) => {
+    try {
+      const { decoded, params } = req;
+      const followerUser = decoded.id;
+      const followingUser = params.id;
+      const follower = await UserService.follow(followerUser, followingUser, 'following');
+      const following = await UserService.follow(followingUser, followerUser, 'followers');
+      following.password = undefined;
+      follower.password = undefined;
+      res.status(200).send({ payload: { following, follower } });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  },
+  unfollow: async (req, res) => {
+    try {
+      const { decoded, params } = req;
+      const followerUser = decoded.id;
+      const followingUser = params.id;
+      const following = await UserService.unfollow(followerUser, followingUser, 'following');
+      const follower = await UserService.unfollow(followingUser, followerUser, 'followers');
+      following.password = undefined;
+      follower.password = undefined;
+      res.status(200).send({ payload: { following, follower } });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  },
 };
