@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const celebrate = require('celebrate');
+const cors = require('cors');
 const router = require('../routers/index.js');
 const { dateNow } = require('../middlewares/index.js');
 
@@ -13,6 +14,7 @@ const bodyParser = express.json({ extended: true });
 app.use(morgan('dev'));
 app.use(bodyParser);
 app.use(dateNow);
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('<h1> Sean Bienvenidos </h1>');
