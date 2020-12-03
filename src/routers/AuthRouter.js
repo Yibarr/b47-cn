@@ -4,7 +4,8 @@ const { UserValidator } = require('../validators/index.js');
 
 const router = express.Router();
 
-router.use('/login', UserValidator.login, UserController.login);
 router.use('/signup', UserValidator.create, UserController.create);
+
+router.use('/login', UserValidator.login, UserController.login);
 
 module.exports = router;

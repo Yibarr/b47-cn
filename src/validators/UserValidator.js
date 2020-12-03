@@ -8,6 +8,7 @@ module.exports = {
         profile_image: Joi.string(),
         first_name: Joi.string().required(),
         last_name: Joi.string().required(),
+        birth_date: Joi.date().required(),
         email: Joi.string().email().required(),
         password: Joi.string().required(),
       }),

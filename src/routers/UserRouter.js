@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.patch('/users', verifyToken, UserValidator.update, UserController.update);
 
-router.patch('/follow/:id', verifyToken, UserValidator.follow, UserController.follow);
+router.post('/follow/:id', verifyToken, UserValidator.follow, UserController.follow);
 
-router.patch('/unfollow/:id', verifyToken, UserValidator.follow, UserController.unfollow);
+router.delete('/follow/:id', verifyToken, UserValidator.follow, UserController.unfollow);
 
 module.exports = router;
